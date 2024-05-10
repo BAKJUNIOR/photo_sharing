@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/public/css/style.css">
+
+    <%- include ('./partials/head') %>
+<body>
+<!-- header  -->
+<header>
+    <!-- Menu responsive -->
+    <div class="menu_toggle">
+        <span></span>
+    </div>
+
+    <!-- Logo de l'application -->
+    <div class="logos">
+        <h3><strong>Pic</strong>Pals</h3>
+    </div>
+
+    <!-- Menu de navigation -->
+    <ul class="menu">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/photos">Photos</a></li>
+        <li><a href="/contact">About</a></li>
+    </ul>
+
+    <!-- Bouton de connexion -->
+    <a href="/login">  <button class="login_btn">CONNEXION</button></a>
+</header>
+
+<section id="home">
+    <div class="left">
+        <h1>Connectez-vous, Capturez, Commentez et Likez avec<span> PicPals </span>: Partagez vos Moments Inoubliables avec vos Amis! </h1>
+        <p>"PicPals est une application web dédiée au partage de photos entre utilisateurs inscrits. Capturez et partagez vos moments spéciaux, interagissez en aimant et commentant les photos de vos amis, et créez des souvenirs inoubliables ensemble. Rejoignez-nous pour explorer,
+            connecter et célébrer la vie à travers l'objectif de PicPals !"</p>
+        <a href="/login">MON ESPACE</a>
+    </div>
+    <div class="right">
+        <img src="/public/img/bg-01.jpg">
+    </div>
+</section>
+
+</body>
+    <%- include('./partials/footer') %>
+
+</html>

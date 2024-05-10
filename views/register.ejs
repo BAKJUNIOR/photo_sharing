@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<link rel="stylesheet" href="/public/css/style.css">
+
+<%- include ('./partials/head') %>
+<body>
+
+
+<div class="limiter">
+
+    <div class="alert-danger">
+        <% if (errors && errors.length > 0) { %>
+            <ul>
+                <% errors.forEach(error => { %>
+                    <li><%= error %></li>
+                <% }); %>
+            </ul>
+        <% } %>
+    </div>
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-form-title" style="background-image: url(/public/img/bg-01.jpg);">
+					<span class="login100-form-title-1">
+						S'inscrire
+					</span>
+            </div>
+
+            <form class="login100-form validate-form" method="post" action="/register" enctype="multipart/form-data">
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">Username</span>
+                    <input class="input100" type="text" name="username"  id="username" placeholder="nom d'utilisateur" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">E-mail</span>
+                    <input class="input100" type="email" name="email" id="email" placeholder="name@example.com" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+                    <span class="label-input100">Mot de passe</span>
+                    <input class="input100" type="password"  name="password" id="password" placeholder="Password" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-19" data-validate = "Password is required" >
+                    <label  for="formFileLg" class="label-input100">Choisir une image</label>
+                    <input class="input100" id="avatar" name="avatar" accept="image/*" type="file" style="padding-top: 20px">
+
+                </div>
+
+                <div class="error-container"></div>
+
+                <div style="margin: 15px">
+
+
+                    <div>
+                        <a href="#" class="txt1">
+                            <p><a href="/login">Connecter-vous </a> Si vous n'avez deja un compte</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
+                        Inscription
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+        <script>
+            const usernameInput = document.querySelector('#username');
+            const errorContainer = document.querySelector('.error-container');
+
+            usernameInput.addEventListener('keyup', () => {
+            const username = usernameInput.value.trim(); //La méthode trim() est utilisée pour supprimer les espaces vides au début et à la fin de la valeur saisie
+            if (username.length < 3 || username.length > 20) {
+                errorContainer.textContent = 'Le nom d\'utilisateur doit comporter entre 3 et 20 caractères';
+                usernameInput.style.color = "red";
+                //usernameInput.classList.add('error');
+            } else {
+                errorContainer.textContent = '';
+                usernameInput.style.color = "green";
+                //usernameInput.classList.remove('error');
+            }
+            });
+        </script>
+    </body>
+</html>
