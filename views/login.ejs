@@ -2,7 +2,7 @@
 	<html lang="fr">
 <link rel="stylesheet" href="/public/css/style.css">
 
-    <%- include ('./partials/head') %>    
+    <%- include ('./partials/head') %>
 	<body>
 
 
@@ -50,8 +50,8 @@
 
     	<script>
 			/*var form = document.querySelector('form');
-			form.addEventListener("submit", loginUser);	
-            
+			form.addEventListener("submit", loginUser);
+
             var loginArea = document.querySelector('#login');
             var profileArea = document.querySelector('#profile');
             var connectionLinkArea = document.querySelector('#connectionLink');
@@ -66,13 +66,13 @@
             var memberOnlyLink = document.querySelector('#member-only');
             memberOnlyLink.addEventListener('click', makeRequestWithToken);
 
-			function loginUser(event) {				
+			function loginUser(event) {
                 loginUserWithXHR(event);
-			}	
-			
-			function loginUserWithXHR(event) {		
+			}
+
+			function loginUserWithXHR(event) {
 				event.preventDefault();
-                console.log('loginUserWithXHR');		
+                console.log('loginUserWithXHR');
 
 				// https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send
 				var xhr = new XMLHttpRequest();
@@ -90,19 +90,19 @@
 
 						form.reset();
 					}
-				}				
+				}
 				var email = document.getElementById('email').value;
 				var password = document.getElementById('password').value;
-				var payLoad = "email=" + email + "&" + "password=" + password; 
-				xhr.send(payLoad); 				
+				var payLoad = "email=" + email + "&" + "password=" + password;
+				xhr.send(payLoad);
 			}
 
             // Afficher les bloc en fonction de la présence d'un token
-            function handleFormDisplay() { 
-                tokenFromStorage = localStorage.getItem('token');            
-                console.log('handleFormDisplay tokenFromStorage', tokenFromStorage);   
+            function handleFormDisplay() {
+                tokenFromStorage = localStorage.getItem('token');
+                console.log('handleFormDisplay tokenFromStorage', tokenFromStorage);
                 if(tokenFromStorage) {
-                    switchToLoggedinMode();                     
+                    switchToLoggedinMode();
                 } else {
                     switchToLoggedOutMode();
                 }
@@ -119,7 +119,7 @@
             function switchToLoggedOutMode() {
                 loginArea.style.display = 'block';
                 profileArea.style.display = 'none';
-                connectionLinkArea.innerHTML = '<a href="/login">connexion</a>';      
+                connectionLinkArea.innerHTML = '<a href="/login">connexion</a>';
             }
 
             function displayPayload() {
@@ -129,15 +129,15 @@
             }
 
             // Permet de decoder le token
-            function parseJwt () { 
-                tokenFromStorage = localStorage.getItem('token');            
+            function parseJwt () {
+                tokenFromStorage = localStorage.getItem('token');
                 console.log('parseJwt tokenFromStorage', tokenFromStorage);
                 if(tokenFromStorage) {
-                    var base64Payload = tokenFromStorage.split('.')[1]; // On convertir le token en tableau separant les éléments par un point puis on recupère le deuxième               
+                    var base64Payload = tokenFromStorage.split('.')[1]; // On convertir le token en tableau separant les éléments par un point puis on recupère le deuxième
                     return JSON.parse(window.atob(base64Payload)); // On retourne l'élément decode avec atob sous forme d'objet Json
                 } else {
                     return 'no token to parse'; // Si il n'ya pas de token
-                }          
+                }
             };
 
             // Fonction pour se deconnecter
@@ -145,14 +145,14 @@
                 switchToLoggedOutMode();
                 localStorage.removeItem('token');
             }
-            
+
 
             // Permet d'ajouter notre token à la requete
             function makeRequestWithToken(evt) {
                 evt.preventDefault();
                 console.log('makeRequestWithToken');
                 var page = this.id; // On recupère l'id du lien
-                tokenFromStorage = localStorage.getItem('token');   
+                tokenFromStorage = localStorage.getItem('token');
                 var config = {};
                 if(tokenFromStorage) {
                     config.headers =  {'Authorization': "Bearer " + JSON.parse(tokenFromStorage)} // On parse avec json pour retirer les guillemets autour du token
@@ -160,12 +160,12 @@
 
                 var bodyParameters = {};
 
-                axios.get( 
+                axios.get(
                     'http://localhost:2000/' + page, // Ce qui appelle la route /member-only
                     config // On ajoute l'objet de configuration qui contient le header
                 ).then((res) => {
                     console.log('success');
-                    console.log(res);  
+                    console.log(res);
                     const memberDataDiv = document.querySelector('#member-data');
                     memberDataDiv.innerHTML = '<pre>Bienvenue ' + res.data.user + '<br>'
                                                 + '. Votre rôle : ' + res.data.role  + '<br>'
@@ -176,6 +176,6 @@
                     console.error('makeRequestWithToken err', err);
                 });
             }*/
-		</script> 
+		</script>
 	</body>
 </html>
